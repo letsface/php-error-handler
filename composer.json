@@ -2,6 +2,8 @@
     "name": "letsface/php-error-handler",
     "description": "Exception handler for php to customise behavior given a specific exception code",
     "license": "MIT",
+    "keywords": ["exception"],
+    "homepage":"https://github.com/letsface/php-error-handler",
     "authors": [
         {
             "name": "sylvainv",
