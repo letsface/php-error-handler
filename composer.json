@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "pimple/pimple": "~3.0"
+        "pimple/pimple": "~11111111111.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.7"
