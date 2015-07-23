@@ -12,7 +12,7 @@ $handler->listen('123', function() {
 });
 
 try {
-  throw new \MyException('', '123);
+  throw new \MyException('', '123');
 }
 catch(\Exception $e) {
   // will echo "foo";
@@ -26,7 +26,7 @@ $handler = new \Letsface\ExceptionHandler();
 $handler->throws('123', '\AnotherException', 'My new message', 'NEWCODE');
 
 try {
-  throw new \MyException('', '123);
+  throw new \MyException('', '123');
 }
 catch(\Exception $e) {
   // will throw "\AnotherException";
@@ -40,7 +40,7 @@ $handler = new \Letsface\ExceptionHandler();
 $handler->rethrow('123');
 
 try {
-  throw new \MyException('', '123);
+  throw new \MyException('', '123');
 }
 catch(\Exception $e) {
   // will throw $e;
