@@ -2,16 +2,14 @@
 
 namespace Letsface;
 
-use Pimple\Container;
-
 class ExceptionHandler
 {
-    /** @var \Pimple\Container */
+    /** @var \Pimple */
     private $_handlers;
 
     public function __construct()
     {
-        $this->_handlers = new Container();
+        $this->_handlers = new \Pimple();
     }
 
     public function listen($code, \Closure $callable)
