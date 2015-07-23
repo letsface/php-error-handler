@@ -36,9 +36,9 @@ class ExceptionHandler
     public function handle(\Exception $e)
     {
         $code = $e->getCode();
-        // if there is no handler for this we rethrow the exception
+        // if there is no handler for this do nothing
         if (!$this->_handlers->offsetExists($code)) {
-          throw $e;
+          return;
         }
 
         return $this->_handlers[$code]($e);
