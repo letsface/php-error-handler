@@ -19,7 +19,7 @@ class ExceptionHandlerTest extends \PHPUnit_Framework_TestCase
     {
         $handler = new \Letsface\ExceptionHandler();
 
-        $handler->throws('123', '\PdoException', 'Some message');
+        $handler->throws('123', new \PdoException('Some message'));
         try {
             $handler->handle(new \Exception('', '123'));
         }

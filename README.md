@@ -23,7 +23,7 @@ catch(\Exception $e) {
 ### Throw an exception
 ```php
 $handler = new \Letsface\ExceptionHandler();
-$handler->throws('123', '\AnotherException', 'My new message', 'NEWCODE');
+$handler->throws('123', new \AnotherException('My new message', 'NEWCODE'));
 
 try {
   throw new \MyException('', '123');

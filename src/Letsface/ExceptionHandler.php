@@ -12,18 +12,29 @@ class ExceptionHandler
         $this->_handlers = new \Pimple();
     }
 
+    /**
+     * @param string $code
+     * @param callable $callable
+     */
     public function listen($code, \Closure $callable)
     {
         $this->_handlers[(string) $code] = $this->_handlers->protect($callable);
     }
 
-    public function throws($code, $class, $message = '', $newCode = 0)
+    /**
+     * @param string $code
+     * @param \Exception $exception
+     */
+    public function throws($code, \Exception $exception)
     {
-        $this->_handlers[(string) $code] = $this->_handlers->protect(function($e) use ($class, $message, $newCode){
-            throw new $class($message, $newCode, $e);
+        $this->_handlers[(string) $code] = $this->_handlers->protect(function($e) use ($exception){
+            throw $exception;
         });
     }
 
+    /**
+     * @param string $code
+     */
     public function rethrow($code)
     {
         $this->_handlers[(string) $code] = $this->_handlers->protect(function($e){
@@ -31,12 +42,15 @@ class ExceptionHandler
         });
     }
 
+    /**
+     * @param \Exception $e
+     */
     public function handle(\Exception $e)
     {
         $code = $e->getCode();
         // if there is no handler for this do nothing
         if (!$this->_handlers->offsetExists($code)) {
-          return;
+            return;
         }
 
         return $this->_handlers[$code]($e);
